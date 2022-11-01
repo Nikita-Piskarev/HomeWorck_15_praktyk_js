@@ -201,12 +201,14 @@ const serverResponse = {
   },
 };
 
-const [user1, user2, user3, user4] = serverResponse.data.data;
-const [...users] = serverResponse.data.data;
+const {
+  data: {
+    data: [...users],
+  },
+  data: {
+    data: [, , user3, user4],
+  },
+} = serverResponse;
 
-const usersArr = users;
-const id3 = user3;
-const id4 = user4;
-console.log(usersArr);
-console.log(id3);
-console.log(id4);
+console.log(users); //все юзеры
+console.log(user3, user4);// 3,4 юзеры
