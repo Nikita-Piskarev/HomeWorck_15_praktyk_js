@@ -121,7 +121,6 @@ const elBook = new ElectroBook(
   4542
 );
 
-
 // 5
 // Требуется написать функцию, выводящую в консоль числа от 1 до n, где n — это целое число, которая функция принимает в качестве параметра, с такими условиями:
 // вывод fizzbuzz вместо чисел, кратных как 3, так и 5.
@@ -132,14 +131,13 @@ function numberReplacement(num) {
   for (let i = 1; i < num; i++) {
     if (i % 3 === 0) {
       console.log("fizz");
-    }
-    if (i % 5 === 0) {
+    } else if (i % 5 === 0) {
       console.log("buzz");
-    }
-    if (i % 3 === 0 && i % 5 === 0) {
+    } else if (i % 3 === 0 && i % 5 === 0) {
       console.log("fizzbuzz");
+    } else {
+      console.log(i);
     }
-    console.log(i);
   }
 }
 
