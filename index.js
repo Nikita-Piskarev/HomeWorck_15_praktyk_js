@@ -29,7 +29,7 @@ const group = {
 
 // 2.3 Связать обьект студента с обьектом его группы
 const map = new Map([[student, group]]);
-console.log(map)
+console.log(map);
 
 // 2.4 Реализовать функцию вывода на экран всей информации о студенте (включая и информацию, связанную с универом) в произвольном виде. Функция должна принимать обьект студента
 
@@ -63,14 +63,14 @@ const array = [
 // // 3.2 Вывести элементы с четными индексами
 for (let index = 0; index < array.length; index++) {
   if (index % 2 === 0) {
-    console.log(array[index])
+    console.log(array[index]);
   }
 }
 
 // 3.3 Вывести только четные элементы (четные числа делятся на 2 без остатка)
 for (const value of array) {
   if (value % 2 === 0) {
-    console.log(value)
+    console.log(value);
   }
 }
 
@@ -84,12 +84,12 @@ for (let i = 0; i < array.length; i++) {
 // 3.5 Подсчитать количество отрицательных чисел в массиве
 // let negativeNum = 0;
 
-for (const value of array) {
-  if (value < 0) {
-    negativeNum += 1;
-  }
-}
-console.log(negativeNum);
+// for (const value of array) {
+//   if (value < 0) {
+//     negativeNum += 1;
+//   }
+// }
+// console.log(negativeNum);
 
 // 4 Создать классы:
 // - Книга (автор, название, год издания, издательство)
@@ -105,12 +105,9 @@ class Book {
 }
 
 const book = new Book("vasa", "gore", 1998, "Ukrania");
-class ElectroBook {
+class ElectroBook extends Book {
   constructor(autor, name, ear, publishing, format, elNum) {
-    this.autor = autor;
-    this.name = name;
-    this.ear = ear;
-    this.publishing = publishing;
+    super(autor, name, ear, publishing);
     this.format = format;
     this.elNum = elNum;
   }
@@ -123,6 +120,7 @@ const elBook = new ElectroBook(
   "jhsb20",
   4542
 );
+
 
 // 5
 // Требуется написать функцию, выводящую в консоль числа от 1 до n, где n — это целое число, которая функция принимает в качестве параметра, с такими условиями:
