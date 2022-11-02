@@ -29,29 +29,24 @@ const group = {
 
 // 2.3 Связать обьект студента с обьектом его группы
 const map = new Map([[student, group]]);
-console.log(map);
 
 // 2.4 Реализовать функцию вывода на экран всей информации о студенте (включая и информацию, связанную с универом) в произвольном виде. Функция должна принимать обьект студента
 
 function returnInfo(user) {
   let arrInfoStudent = [];
-  let strInfoStudent = "";
-  for (const [key, value] of map) {
-    if (user === key) {
-      console.log(value, key);
-      for (const [key, info] of Object.entries(value)) {
-        arrInfoStudent.push(`${key} - ${info}.`);
-        strInfoStudent += `${key} - ${info}. `;
-      }
-      for (const [keys, info] of Object.entries(key)) {
-        arrInfoStudent.push(`${keys} - ${info}.`);
-        strInfoStudent += `${keys} - ${info}. `;
-      }
+  if (map.has(user)) {
+    for (const [key, value] of Object.entries(map.get(user))) {
+      arrInfoStudent.push(`${key} - ${value}.`);
+    }
+
+    for (const [key, value] of Object.entries(user)) {
+      arrInfoStudent.push(`${key} - ${value}.`);
     }
   }
-  // return arrInfoStudent; ///вывожу масив в который содержит масивы ключ ии значение
-  return `${strInfoStudent.trim()}`; // вывожу строку без первого и последнего пробелла
+// console.log(arrInfoStudent)
+  return arrInfoStudent;
 }
+// returnInfo(student);
 
 // 3.1 Создать числовой массив и проинициализировать его из 25 элементов.
 
@@ -211,4 +206,4 @@ const {
 } = serverResponse;
 
 console.log(users); //все юзеры
-console.log(user3, user4);// 3,4 юзеры
+console.log(user3, user4); // 3,4 юзеры
